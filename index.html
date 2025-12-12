@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tejas Electronics Store</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<!-- Font Awesome Icons -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+<style>
+/* ----------------- GLOBAL ----------------- */
+*{
+    margin:0; padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+}
+body{
+    background:#f3f4f6;
+}
+
+/* ----------------- NAVBAR ----------------- */
+nav{
+    width:100%;
+    background:#111827;
+    padding:15px 40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    color:white;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+nav h2{
+    font-size:26px;
+    font-weight:700;
+}
+nav ul{
+    display:flex;
+    list-style:none;
+}
+nav ul li{
+    margin-left:25px;
+}
+nav ul li a{
+    text-decoration:none;
+    color:white;
+    font-size:16px;
+    transition:0.3s;
+}
+nav ul li a:hover{
+    color:#00d4ff;
+}
+.cart-icon{
+    font-size:22px;
+    cursor:pointer;
+    position:relative;
+}
+.cart-count{
+    position:absolute;
+    top:-8px;
+    right:-10px;
+    background:red;
+    color:white;
+    padding:2px 6px;
+    border-radius:50%;
+    font-size:12px;
+}
+
+/* ----------------- HERO ----------------- */
+.hero{
+    width:100%;
+    height:70vh;
+    background:url('https://images.unsplash.com/photo-1517336714731-489689fd1ca8') no-repeat center/cover;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:white;
+}
+.hero h1{
+    font-size:50px;
+    animation:fadeIn 2s;
+}
+.hero p{
+    margin-top:10px;
+    font-size:20px;
+    animation:fadeIn 2s;
+}
+@keyframes fadeIn{
+    0%{opacity:0; transform:translateY(20px);}
+    100%{opacity:1; transform:translateY(0);}
+}
+
+/* ----------------- PRODUCTS ----------------- */
+.products{
+    padding:40px;
+}
+.products h2{
+    text-align:center;
+    font-size:34px;
+    margin-bottom:20px;
+}
+
+.product-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(250px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:white;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+    text-align:center;
+    transition:0.3s;
+}
+.card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 8px 20px rgba(0,0,0,0.2);
+}
+.card img{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+    border-radius:10px;
+}
+.card h3{
+    margin:10px 0;
+}
+.price{
+    font-size:18px;
+    font-weight:600;
+    color:#2563eb;
+}
+.btn-group{
+    margin-top:15px;
+}
+button{
+    padding:10px 15px;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+    margin:5px;
+    color:white;
+    font-weight:600;
+    transition:0.3s;
+}
+.add-cart{
+    background:#10b981;
+}
+.add-cart:hover{
+    background:#059669;
+}
+.buy-now{
+    background:#2563eb;
+}
+.buy-now:hover{
+    background:#1e40af;
+}
+
+/* ----------------- TESTIMONIALS ----------------- */
+.testimonials{
+    background:white;
+    padding:50px 40px;
+    margin-top:40px;
+}
+.testimonials h2{
+    text-align:center;
+    font-size:32px;
+    margin-bottom:20px;
+}
+.test-container{
+    display:flex;
+    justify-content:space-around;
+    flex-wrap:wrap;
+    gap:20px;
+}
+.test-card{
+    background:#f3f4f6;
+    padding:20px;
+    width:300px;
+    border-radius:12px;
+    text-align:center;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+    transition:0.3s;
+}
+.test-card:hover{
+    transform:scale(1.05);
+}
+.test-card img{
+    width:80px;
+    height:80px;
+    border-radius:50%;
+    object-fit:cover;
+}
+.test-card p{
+    margin-top:10px;
+}
+
+/* ----------------- FOOTER ----------------- */
+footer{
+    background:#111827;
+    color:white;
+    padding:30px;
+    text-align:center;
+    margin-top:40px;
+    animation:fadeInFooter 2s;
+}
+@keyframes fadeInFooter{
+    from{opacity:0;}
+    to{opacity:1;}
+}
+</style>
+
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+    <h2>Tejas Electronics Store</h2>
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#testimonial">Testimonials</a></li>
+        <li><a href="#footer">Contact</a></li>
+    </ul>
+
+    <div class="cart-icon">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-count">0</span>
+    </div>
+</nav>
+
+<!-- HERO SECTION -->
+<section class="hero">
+    <div>
+        <h1>Best Electronics At Best Prices</h1>
+        <p>Shop latest gadgets, phones, laptops & accessories.</p>
+    </div>
+</section>
+
+<!-- PRODUCTS SECTION -->
+<section class="products" id="products">
+    <h2>Our Electronics</h2>
+
+    <div class="product-container">
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9" />
+            <h3>Smartphone Pro X</h3>
+            <p class="price">₹25,999</p>
+            <div class="btn-group">
+                <button class="add-cart">Add to Cart</button>
+                <button class="buy-now">Buy Now</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="images/gaming laptop.png" alt="Phone">
+
+            <h3>Gaming Laptop</h3>
+            <p class="price">₹79,999</p>
+            <div class="btn-group">
+                <button class="add-cart">Add to Cart</button>
+                <button class="buy-now">Buy Now</button>
+            </div>
+        </div>
+
+        <div class="card">
+<img src="images/wireless headphones.png" alt="Phone">
+
+            <h3>Wireless Headphones</h3>
+            <p class="price">₹2,499</p>
+            <div class="btn-group">
+                <button class="add-cart">Add to Cart</button>
+                <button class="buy-now">Buy Now</button>
+            </div>
+        </div>
+
+        <div class="card">
+<img src="images/hair dryer.png" alt="Phone">
+
+            <h3>Hair Dryer</h3>
+            <p class="price">₹999</p>
+            <div class="btn-group">
+                <button class="add-cart">Add to Cart</button>
+                <button class="buy-now">Buy Now</button>
+            </div>
+        </div>
+
+        <div class="card">
+<img src="images/hair starighner.png" alt="Phone">
+
+            <h3>Hair Straightener</h3>
+            <p class="price">₹1,499</p>
+            <div class="btn-group">
+                <button class="add-cart">Add to Cart</button>
+                <button class="buy-now">Buy Now</button>
+            </div>
+        </div>
+
+        <div class="card">
+<img src="images/mixer grinder.png" alt="Phone">
+
+            <h3>Mixer Grinder</h3>
+            <p class="price">₹3,599</p>
+            <div class="btn-group">
+                <button class="add-cart">Add to Cart</button>
+                <button class="buy-now">Buy Now</button>
+            </div>
+        </div>
+
+        <div class="card">
+
+<img src="images/hand blender.png" alt="Phone">
+            <h3>Hand Blender</h3>
+            <p class="price">₹899</p>
+            <div class="btn-group">
+                <button class="add-cart">Add to Cart</button>
+                <button class="buy-now">Buy Now</button>
+            </div>
+        </div>
+
+        <div class="card">
+<img src="images/bluetooth speaker.png" alt="Phone">
+
+            <h3>Bluetooth Speaker</h3>
+            <p class="price">₹1,999</p>
+            <div class="btn-group">
+                <button class="add-cart">Add to Cart</button>
+                <button class="buy-now">Buy Now</button>
+            </div>
+        </div>
+
+        <div class="card">
+
+<img src="images/tv.png" alt="Phone">
+            <h3>4K Smart TV</h3>
+            <p class="price">₹39,999</p>
+            <div class="btn-group">
+                <button class="add-cart">Add to Cart</button>
+                <button class="buy-now">Buy Now</button>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- TESTIMONIAL SECTION -->
+<section class="testimonials" id="testimonial">
+    <h2>What Customers Say</h2>
+
+    <div class="test-container">
+
+        <div class="test-card">
+            <img src="https://randomuser.me/api/portraits/men/45.jpg" />
+            <h3>Rohit Sharma</h3>
+            <p>Great quality products, very fast delivery. Loved the experience!</p>
+        </div>
+
+        <div class="test-card">
+            <img src="https://randomuser.me/api/portraits/women/65.jpg" />
+            <h3>Priya Verma</h3>
+            <p>The laptop I bought is amazing! Best store for electronics.</p>
+        </div>
+
+        <div class="test-card">
+            <img src="https://randomuser.me/api/portraits/women/44.jpg" />
+            <h3>Anjali Singh</h3>
+            <p>Customer service is top-notch. Highly recommended!</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="footer">
+    <p>© 2025 Tejas Electronics. All Rights Reserved.</p>
+</footer>
+
+<script>
+// CART COUNTER
+let count = 0;
+const cartCount = document.querySelector(".cart-count");
+
+document.querySelectorAll(".add-cart").forEach(btn => {
+    btn.addEventListener("click", () => {
+        count++;
+        cartCount.textContent = count;
+    });
+});
+
+// BUY NOW BUTTON
+document.querySelectorAll(".buy-now").forEach(btn => {
+    btn.addEventListener("click", () => {
+        alert("Thank you for your purchase!");
+    });
+});
+</script>
+
+</body>
+</html>
